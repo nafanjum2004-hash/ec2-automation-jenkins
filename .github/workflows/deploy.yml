@@ -1,4 +1,8 @@
 name: Deploy Project
+permissions:
+  id-token: write
+  contents: read
+
 on:
   workflow_dispatch:
     inputs:
@@ -27,7 +31,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
+
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::060795920646:role/github-actions-role
+          aws-region: ${{ github.event.inputs.aws_region }}
 
       - name: Run a deployment placeholder
         run: echo "Deployment workflow triggered"
