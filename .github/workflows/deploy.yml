@@ -79,7 +79,7 @@ jobs:
           -var="key_name=${{ github.event.inputs.key_name }}" \
           -var="role_name=lambda-ec2-role" \
           -var="lambda_function_name=ec2-creator" \
-          -var="lambda_handler=lambda_function.lambda_handler"
+          -var="lambda_handler=lambda_function.lambda_handler"\
           -var="lambda_runtime=python3.12" \
           -var="lambda_timeout=30"
 
@@ -96,6 +96,6 @@ jobs:
           -var="key_name=${{ github.event.inputs.key_name }}" \
           -var="role_name=lambda-ec2-role" \
           -var="lambda_function_name=ec2-creator" \
-          -var="lambda_handler=lambda_function.lambda_handler"
+          -var="lambda_handler=lambda_function.lambda_handler"\
           -var="lambda_runtime=python3.12" \
           -var="lambda_timeout=30"
