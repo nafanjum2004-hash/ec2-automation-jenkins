@@ -31,15 +31,15 @@ def lambda_handler(event, context):
     instance = instance_details["Reservations"][0]["Instances"][0]
 
     print("-----------")
-print(f"Instance ID: {instance['InstanceId']}")
-print(f"State: {instance['State']['Name']}")
-print(f"Instance Type: {instance['InstanceType']}")
-print(f"Region: {region}")
-print(f"Availability Zone: {instance['Placement']['AvailabilityZone']}")
-print(f"Private IP: {instance.get('PrivateIpAddress', 'N/A')}")
-print(f"Public IP: {instance.get('PublicIpAddress', 'N/A')}")
+    print(f"Instance ID: {instance['InstanceId']}")
+    print(f"State: {instance['State']['Name']}")
+    print(f"Instance Type: {instance['InstanceType']}")
+    print(f"Region: {region}")
+    print(f"Availability Zone: {instance['Placement']['AvailabilityZone']}")
+    print(f"Private IP: {instance.get('PrivateIpAddress', 'N/A')}")
+    print(f"Public IP: {instance.get('PublicIpAddress', 'N/A')}")
 
-return {
-    "statusCode": 200,
-    "body": "EC2 Instance Created Successfully"
-}
+    return {
+        "statusCode": 200,
+        "body": "EC2 Instance Created Successfully"
+    }
