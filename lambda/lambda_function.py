@@ -4,7 +4,7 @@ import json
 
 def lambda_handler(event, context):
 
-    region = os.environ["AWS_REGION"]
+    region = os.environ["REGION_NAME"]
     ami_id = os.environ["AMI_ID"]
     instance_type = os.environ["INSTANCE_TYPE"]
     key_name = os.environ["KEY_NAME"]

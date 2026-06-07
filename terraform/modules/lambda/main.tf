@@ -13,12 +13,12 @@ resource "aws_lambda_function" "ec2_creator" {
 
   timeout = var.lambda_timeout
 
-  environment {
-    variables = {
-      AMI_ID        = var.ami_id
-      INSTANCE_TYPE = var.instance_type
-      KEY_NAME      = var.key_name
-      AWS_REGION    = var.aws_region
-    }
+ environment {
+  variables = {
+    AMI_ID        = var.ami_id
+    INSTANCE_TYPE = var.instance_type
+    KEY_NAME      = var.key_name
+    REGION_NAME   = var.aws_region
   }
+}
 }
