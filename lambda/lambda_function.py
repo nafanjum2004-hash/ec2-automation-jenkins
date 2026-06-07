@@ -27,10 +27,14 @@ def lambda_handler(event, context):
 
     instance = instance_details["Reservations"][0]["Instances"][0]
 
-    return {
-        "statusCode": 200,
-        "body": json.dumps({
-            "InstanceId": instance["InstanceId"],
-            "State": instance["State"]["Name"]
-        })
-    }
+   return {
+    "statusCode": 200,
+    "body": json.dumps({
+        "InstanceId": instance["InstanceId"],
+        "State": instance["State"]["Name"],
+        "InstanceType": instance["InstanceType"],
+        "PrivateIP": instance.get("PrivateIpAddress", "Not Assigned"),
+        "PublicIP": instance.get("PublicIpAddress", "Not Assigned"),
+        "AvailabilityZone": instance["Placement"]["AvailabilityZone"]
+    })
+}
