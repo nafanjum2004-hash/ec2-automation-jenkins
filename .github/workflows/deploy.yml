@@ -99,3 +99,19 @@ jobs:
           -var="lambda_handler=lambda_function.lambda_handler" \
           -var="lambda_runtime=python3.12" \
           -var="lambda_timeout=30"
+
+
+      - name: Terraform Destroy
+        if: github.event.inputs.action == 'destroy'
+        working-directory: terraform
+        run: |
+          terraform destroy -auto-approve \
+          -var="aws_region=${{ github.event.inputs.aws_region }}" \
+          -var="ami_id=${{ github.event.inputs.ami_id }}" \
+          -var="instance_type=${{ github.event.inputs.instance_type }}" \
+          -var="key_name=${{ github.event.inputs.key_name }}" \
+          -var="role_name=lambda-ec2-role" \
+          -var="lambda_function_name=ec2-creator" \
+          -var="lambda_handler=lambda_function.lambda_handler" \
+          -var="lambda_runtime=python3.12" \
+          -var="lambda_timeout=30"
